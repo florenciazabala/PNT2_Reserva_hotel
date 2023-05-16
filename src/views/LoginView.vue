@@ -2,15 +2,17 @@
   <ion-page>
     <h2>Login</h2>
     <ion-button @click="logear">Login</ion-button>
+    <ion-input label="Email"></ion-input>
+    <ion-input label="Contraseña"></ion-input>
   </ion-page>
 </template>
 
 <script>
-import { IonPage, IonButton } from "@ionic/vue";
+import {IonPage, IonButton, IonContent, IonInput, IonList} from '@ionic/vue'
 import { useLoginStore } from "../stores/login";
 
 export default {
-  components: { IonPage, IonButton },
+  components: {IonPage, IonButton, IonContent, IonInput, IonList},
   setup() {
     const store = useLoginStore();
     const { login } = store;
