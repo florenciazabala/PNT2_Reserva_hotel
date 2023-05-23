@@ -1,5 +1,6 @@
 <template>
     <ion-page>
+    </ion-page>
       <ion-content>
         <h2> Habitaciones</h2>
         <ion-list v-for="e in lista" :key="e.id">
@@ -16,7 +17,6 @@
         <ion-button @click="ordenarLista">Ordenar</ion-button>
         <ion-button @click="iraHome">Ir a home</ion-button>
       </ion-content>
-    </ion-page>
   </template>
   
   <script>
