@@ -1,44 +1,34 @@
-  <style>
-  </style>
+<script>
+import { RouterLink, RouterView } from "vue-router";
+import { IonApp, IonHeader } from "@ionic/vue";
+import { storeToRefs } from "pinia";
+import { useLoginStore } from "./stores/login";
+
+export default {
+  components: { IonApp, IonHeader },
+  setup() {
+    const store = useLoginStore();
+    const { isLogin, user } = storeToRefs(store);
+    const { hasPermissions } = store; 
+    return { isLogin, user, hasPermissions };
+  },
+};
+</script>
 
 <template>
   <ion-app>
     <ion-header>
       <RouterLink to="/">Home |</RouterLink>
-      <RouterLink to="/habitaciones">Habitaciones |</RouterLink>
-      <RouterLink to="/misReservas">Reservas |</RouterLink>
-      <RouterLink to="/login">Login |</RouterLink>
-      <RouterLink to="/">Logout</RouterLink>
+      <RouterLink to="/about">About |</RouterLink>
+      <RouterLink v-if="isLogin" to="/system">System |</RouterLink>
+      <RouterLink v-if="isLogin && hasPermissions('config')" to="/config">Config |</RouterLink>
+      <RouterLink v-if="!isLogin" to="/login">Login |</RouterLink>
+      <RouterLink v-if="isLogin" to="/logout">Logout</RouterLink>
+      Usuario: {{ user.email }}
     </ion-header>
     <RouterView />
   </ion-app>
-
 </template>
 
-<script>
-import { RouterLink, RouterView } from 'vue-router'
-import {IonApp, IonHeader} from '@ionic/vue'
-export default {
-  components: {IonApp, IonHeader}
-}
-
-import { defineStore } from 'pinia'
-export const useLoginStore = defineStore('login', {
-  state: () => {
-    return { isLogin: false }
-  },
-  actions: {
-    logout() {
-      this.isLogin = false
-    },
-    login() {
-      this.isLogin = true
-    },
-    setup() {
-      const store = useLoginStore();
-      const { isLogin } = storeToRefs(store)
-      return { isLogin }
-    }
-  },
-})
-</script>
+<style>
+</style>
