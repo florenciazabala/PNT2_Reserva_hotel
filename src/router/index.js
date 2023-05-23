@@ -6,6 +6,7 @@ import DetailView from '../views/DetailView.vue'
 import LoginView from '../views/LoginView.vue'
 import LogoutView from '../views/LogoutView.vue'
 import ConfigView from '../views/ConfigView.vue'
+import HabitacionesView from '../views/HabitacionesView.vue'
 
 import { useLoginStore } from '../stores/login'
 
@@ -48,6 +49,12 @@ const router = createRouter({
       path: '/:pathMatch(.*)*',
       name: "NotFound",
       component: NotFoundView
+    },
+    {
+      path: '/habitaciones',
+      name: "habitaciones",
+      component: HabitacionesView,
+      meta: { RequireAuth: true }
     },
     {
       path: '/about',
