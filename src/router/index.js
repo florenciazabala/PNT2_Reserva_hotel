@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router'
 import HomeView from '../views/HomeView.vue'
-import SystemView from '../views/SystemView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 import DetailView from '../views/DetailView.vue'
 import LoginView from '../views/LoginView.vue'
@@ -32,12 +31,6 @@ const router = createRouter({
       path: '/config',
       name: 'config',
       component: ConfigView,
-      meta: { RequireAuth: true }
-    },
-    {
-      path: '/system',
-      name: 'system',
-      component: SystemView,
       meta: { RequireAuth: true }
     },
     {

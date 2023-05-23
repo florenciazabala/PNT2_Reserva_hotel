@@ -4,7 +4,7 @@
         <h2> Habitaciones</h2>
         <ion-list v-for="e in lista" :key="e.id">
             <ion-input v-if="ocultar" v-model="elemento.id" label="Id"></ion-input> 
-          {{ e.id }} {{ e.cantPersonas }} {{ e.EsPremium }}
+          {{ e.id }} {{ e.cantPersonas }} {{ e.EsPremium }} 
           <ion-button @click="eliminar(e.id)">Eliminar</ion-button>
           <ion-button @click="modificar(e.id)">Modificar</ion-button>
         </ion-list>  
@@ -22,7 +22,7 @@
   <script>
   import {IonPage, IonButton, IonContent, IonInput, IonList} from '@ionic/vue'
   import axios from 'axios'
-  import listaService from '../services/listaService'
+  import habitaciones from '../services/habitaciones'
   
   export default {
     components: {IonPage, IonButton, IonContent, IonInput, IonList},
@@ -34,7 +34,7 @@
         // Falta control de ingreso de datos
         try {
           const elemento = {...this.elemento}
-          await listaService.agregar(elemento)
+          await habitaciones.agregar(elemento)
           await this.cargarLista()
           this.elemento = {}
         } catch(e) {
@@ -46,7 +46,7 @@
       },
       async cargarLista() {
         try {
-          const respuesta = await listaService.cargarLista()
+          const respuesta = await habitaciones.cargarLista()
           this.lista = respuesta
         } catch(e) {
           alert(e)  
@@ -54,7 +54,7 @@
       },
       async eliminar(id) {
         try {
-          await listaService.eliminar(id)
+          await habitaciones.eliminar(id)
           await this.cargarLista()
         } catch( e) {
           alert('Se produjo un error')
@@ -63,7 +63,7 @@
       async modificar(id) {
         try {
           const elemento = {...this.elemento}
-          await listaService.modificar(id,elemento)
+          await habitaciones.modificar(id,elemento)
           await this.cargarLista()
           this.elemento = {}
         } catch( e) {
