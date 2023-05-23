@@ -1,16 +1,18 @@
 <script>
-import { RouterLink, RouterView } from "vue-router";
-import { IonApp, IonHeader } from "@ionic/vue";
+import { RouterLink, RouterView, useRouter } from "vue-router";
+import { IonButton, IonApp, IonHeader, IonContent } from "@ionic/vue";
 import { storeToRefs } from "pinia";
 import { useLoginStore } from "./stores/login";
+import { IonNav } from '@ionic/vue';
 
 export default {
-  components: { IonApp, IonHeader },
+  components: { IonApp, IonHeader, IonNav, IonButton, IonContent },
   setup() {
+    const router = useRouter();
     const store = useLoginStore();
     const { isLogin, user } = storeToRefs(store);
-    const { hasPermissions } = store; 
-    return { isLogin, user, hasPermissions };
+    const { hasPermissions } = store;
+    return { isLogin, user, hasPermissions, router};
   },
 };
 </script>
@@ -18,13 +20,15 @@ export default {
 <template>
   <ion-app>
     <ion-header>
-      <RouterLink to="/">Home |</RouterLink>
-      <RouterLink to="/about">About |</RouterLink>
-      <RouterLink v-if="isLogin" to="/system">System |</RouterLink>
-      <RouterLink v-if="isLogin && hasPermissions('config')" to="/config">Config |</RouterLink>
-      <RouterLink v-if="!isLogin" to="/login">Login |</RouterLink>
-      <RouterLink v-if="isLogin" to="/logout">Logout</RouterLink>
-      Usuario: {{ user.email }}
+      <ion-button router-link="/" router-direction="back" :router-animation="myAnimation">Home</ion-button>
+      <ion-button router-link="/about" router-direction="back" :router-animation="myAnimation">About</ion-button>
+      <ion-button v-if="isLogin" router-link="/system" router-direction="back" :router-animation="myAnimation">System</ion-button>
+      <ion-button v-if="isLogin && hasPermissions('config')" router-link="/config" router-direction="back" :router-animation="myAnimation">Config</ion-button>
+      <ion-button v-if="!isLogin" router-link="/login" router-direction="back" :router-animation="myAnimation">Login</ion-button>
+      <ion-button v-if="isLogin" router-link="/logout" router-direction="back" :router-animation="myAnimation">Logout</ion-button>
+      <ion-content v-if="isLogin" class="ion-padding">
+        Usuario: {{ user.email }}
+      </ion-content>
     </ion-header>
     <RouterView />
   </ion-app>

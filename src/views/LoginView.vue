@@ -1,12 +1,12 @@
 <template>
   <ion-page>
-    <ion-content>
+  </ion-page>
+    <ion-content class="ion-padding">
       <h2>Login</h2>
       <ion-input v-model="usuario.email" label="Email" type="email"></ion-input>
       <ion-input v-model="usuario.passw" label="Password" type="password"></ion-input>
       <ion-button @click="logear">Login</ion-button>
-    </ion-content>  
-  </ion-page>
+    </ion-content>
 </template>
 
 <script>

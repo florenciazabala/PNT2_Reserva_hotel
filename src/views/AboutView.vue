@@ -1,7 +1,10 @@
 <template>
   <ion-page>
-    <h2>This is an about page</h2>
   </ion-page>
+    <ion-content class="ion-padding">
+    <h2>This is an about page</h2>
+
+    </ion-content>
 </template>
 
 <script>

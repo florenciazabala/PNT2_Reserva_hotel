@@ -1,6 +1,7 @@
 <template>
   <ion-page>
     <ion-content>
+    </ion-content>
       <h2>System Page</h2>
       <ion-list v-for="e in lista" :key="e.id">
         {{ e.id }} {{ e.nombre }}
@@ -13,7 +14,6 @@
       <ion-button @click="agregaraLista">Agregar</ion-button>
       <ion-button @click="ordenarLista">Ordenar</ion-button>
       <ion-button @click="iraHome">Ir a home</ion-button>
-    </ion-content>
   </ion-page>
 </template>
 

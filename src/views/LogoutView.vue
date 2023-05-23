@@ -1,8 +1,8 @@
 <template>
   <ion-page>
+  </ion-page>
     <h2>Logout</h2>
     <ion-button @click="unlogear">Logout</ion-button>
-  </ion-page>
 </template>
 
 <script>

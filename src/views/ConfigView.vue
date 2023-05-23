@@ -1,7 +1,7 @@
 <template>
   <ion-page>
-    <h2>This is an Config page</h2>
   </ion-page>
+    <h2>This is an Config page</h2>
 </template>
 
 <script>
