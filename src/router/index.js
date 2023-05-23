@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router'
 import HomeView from '../views/HomeView.vue'
-import SystemView from '../views/SystemView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 import DetailView from '../views/DetailView.vue'
 import LoginView from '../views/LoginView.vue'
 import LogoutView from '../views/LogoutView.vue'
 import ConfigView from '../views/ConfigView.vue'
+import HabitacionesView from '../views/HabitacionesView.vue'
 
 import { useLoginStore } from '../stores/login'
 
@@ -34,12 +34,6 @@ const router = createRouter({
       meta: { RequireAuth: true }
     },
     {
-      path: '/system',
-      name: 'system',
-      component: SystemView,
-      meta: { RequireAuth: true }
-    },
-    {
       path: '/detail/:code',
       name: 'detail',
       component: DetailView
@@ -48,6 +42,12 @@ const router = createRouter({
       path: '/:pathMatch(.*)*',
       name: "NotFound",
       component: NotFoundView
+    },
+    {
+      path: '/habitaciones',
+      name: "habitaciones",
+      component: HabitacionesView,
+      meta: { RequireAuth: true }
     },
     {
       path: '/about',

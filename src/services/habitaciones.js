@@ -1,6 +1,6 @@
 import axios from 'axios'
 const apiClient = axios.create({
-    baseURL: 'https://645aeb4e65bd868e9326bfdd.mockapi.io/api/v1',
+    baseURL: 'https://646be9c67b42c06c3b2a91a0.mockapi.io/',
     headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
@@ -10,7 +10,7 @@ const apiClient = axios.create({
 export default {
     async cargarLista() {
         try {
-            const response = await apiClient.get('/lista');
+            const response = await apiClient.get('/Habitaciones');
             return response.data
         } catch (error) {
             throw "Error de conexion"
@@ -19,7 +19,7 @@ export default {
 
     async agregar(elemento) {
         try {
-            await apiClient.post('/lista', elemento);
+            await apiClient.post('/Habitaciones', elemento);
         } catch (error) {
             throw "Error de conexion"
         }
@@ -27,7 +27,7 @@ export default {
 
     async eliminar(id) {
         try {
-            await apiClient.delete('/lista/' + id);
+            await apiClient.delete('/Habitaciones/' + id);
         } catch (error) {
             throw "Error de conexion"
         }
@@ -35,7 +35,7 @@ export default {
 
     async modificar(id, elemento) { 
         try {
-            await apiClient.put('/lista/' + id, elemento);
+            await apiClient.put('/Habitaciones/' + id, elemento);
         } catch (error) {
             throw "Error de conexion"
         }
