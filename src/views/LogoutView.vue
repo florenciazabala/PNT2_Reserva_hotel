@@ -1,8 +1,10 @@
 <template>
   <ion-page>
   </ion-page>
+  <ion-content class="ion-padding">
     <h2>Logout</h2>
     <ion-button @click="unlogear">Logout</ion-button>
+  </ion-content>
 </template>
 
 <script>

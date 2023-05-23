@@ -31,7 +31,7 @@ export default {
         // proxima clase conexion con backend
         if (this.usuario.email=="test@test.com" && this.usuario.passw=="123456") {
           this.login( { email: this.usuario.email, permissions: [] } )
-          this.$router.push('system')
+          this.$router.push('/')
         } else if (this.usuario.email=="admin@test.com" && this.usuario.passw=="123456") {
           this.login( { email: this.usuario.email, permissions: ['config'] } )
           this.$router.push('config')
