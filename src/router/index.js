@@ -48,7 +48,7 @@ const router = createRouter({
       path: '/habitaciones',
       name: "habitaciones",
       component: HabitacionesView,
-      meta: { RequireAuth: true }
+      
     },
     {
       path: '/reservas',
