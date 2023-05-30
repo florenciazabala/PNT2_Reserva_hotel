@@ -7,9 +7,10 @@
             <ion-input v-if="ocultar" v-model="elemento.id" ></ion-input> 
           <ion-text>Habitacion numero </ion-text>{{ e.NumeroDeHabitacion }} 
           <ion-text>Cantidad de personas máximo para la habitacion </ion-text>{{ e.cantPersonas }} 
-          <ion-text v-if="e.EsPremium">asd</ion-text>
+          <ion-text v-if="e.EsPremium">PREMIUM </ion-text>
+          <ion-text v-if="!e.EsPremium">STANDARD </ion-text>
           <ion-text>Precio </ion-text>{{ e.Precio }}
-          <ion-img :src="e.imagen"></ion-img>
+          <ion-img :src="e.imagen" style="width: 500px;"></ion-img>
           <ion-button @click="eliminar(e.id)">Eliminar</ion-button>
           <ion-button @click="modificar(e.id)">Modificar</ion-button>
         </ion-list>  
