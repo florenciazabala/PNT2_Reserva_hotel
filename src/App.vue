@@ -22,7 +22,7 @@ export default {
     <ion-header>
       <ion-button router-link="/" router-direction="back" :router-animation="myAnimation">Home</ion-button>
       <ion-button router-link="/about" router-direction="back" :router-animation="myAnimation">About</ion-button>
-      <ion-button router-link="/habitaciones" router-direction="back" :router-animation="myAnimation">Habitaciones</ion-button>
+      <ion-button router-link='/habitaciones' router-direction="back" :router-animation="myAnimation">Habitaciones</ion-button>
       <ion-button v-if="isLogin" router-link="/system" router-direction="back" :router-animation="myAnimation">System</ion-button>
       <ion-button v-if="isLogin && hasPermissions('config')" router-link="/config" router-direction="back" :router-animation="myAnimation">Config</ion-button>
       <ion-button v-if="!isLogin" router-link="/login" router-direction="back" :router-animation="myAnimation">Login</ion-button>

@@ -1,22 +1,25 @@
 <template>
     <ion-page>
-    </ion-page>
-      <ion-content>
+    
+      <ion-content >
         <h2> Habitaciones</h2>
         <ion-list v-for="e in lista" :key="e.id">
-            <ion-input v-if="ocultar" v-model="elemento.id" label="Id"></ion-input> 
-          {{ e.id }} {{ e.cantPersonas }} {{ e.EsPremium }} 
+            <ion-input v-if="ocultar" v-model="elemento.id" ></ion-input> 
+          <ion-text>Habitacion numero </ion-text>{{ e.NumeroDeHabitacion }} 
+          <ion-text>Cantidad de personas máximo para la habitacion </ion-text>{{ e.cantPersonas }} 
+          <ion-text v-if="e.EsPremium">asd</ion-text>
+          <ion-text>Precio </ion-text>{{ e.Precio }}
+          <ion-img :src="e.imagen"></ion-img>
           <ion-button @click="eliminar(e.id)">Eliminar</ion-button>
           <ion-button @click="modificar(e.id)">Modificar</ion-button>
         </ion-list>  
-        <ion-input v-if="ocultar" v-model="elemento.id" label="Id"></ion-input>
-        <ion-input v-if="ocultar" v-model="elemento.cantPersonas" label="Cantidad de personas en hab:"></ion-input>
-        <ion-input v-if="ocultar" v-model="elemento.EsPremium" label="es premium:"></ion-input>
         <ion-button @click="cargarLista">Cargar Lista</ion-button>
         <ion-button @click="agregaraLista">Agregar</ion-button>
         <ion-button @click="ordenarLista">Ordenar</ion-button>
         <ion-button @click="iraHome">Ir a home</ion-button>
+        
       </ion-content>
+    </ion-page>
   </template>
   
   <script>
@@ -82,5 +85,8 @@
   </script>
   
   <style>
-  
+  ion-content{
+    --padding-top: 50px;
+    }
   </style>
+  
