@@ -30,7 +30,7 @@
           <ion-list>
             <ion-item>
               <ion-thumbnail slot="start">
-                <img alt="Foto habitación" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                <img alt="Foto habitación" :src="e.habitacion.foto" />
               </ion-thumbnail>
               <ion-label>Item</ion-label>
             </ion-item>
