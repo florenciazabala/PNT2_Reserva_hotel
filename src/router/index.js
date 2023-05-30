@@ -6,6 +6,7 @@ import LoginView from '../views/LoginView.vue'
 import LogoutView from '../views/LogoutView.vue'
 import ConfigView from '../views/ConfigView.vue'
 import HabitacionesView from '../views/HabitacionesView.vue'
+import ReservasView from '../views/ReservasView.vue'
 
 import { useLoginStore } from '../stores/login'
 
@@ -47,6 +48,12 @@ const router = createRouter({
       path: '/habitaciones',
       name: "habitaciones",
       component: HabitacionesView,
+      meta: { RequireAuth: true }
+    },
+    {
+      path: '/reservas',
+      name: "reservas",
+      component: ReservasView,
       meta: { RequireAuth: true }
     },
     {
