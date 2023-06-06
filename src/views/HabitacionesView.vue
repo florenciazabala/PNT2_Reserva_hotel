@@ -1,18 +1,33 @@
 <template>
     <ion-page>
-    
       <ion-content >
-        <h2> Habitaciones</h2>
+        <h2> Habitaciones Disponibles</h2>
         <ion-list v-for="e in lista" :key="e.id">
-            <ion-input v-if="ocultar" v-model="elemento.id" ></ion-input> 
-          <ion-text>Habitacion numero </ion-text>{{ e.NumeroDeHabitacion }} 
-          <ion-text>Cantidad de personas máximo para la habitacion </ion-text>{{ e.cantPersonas }} 
-          <ion-text v-if="e.EsPremium">PREMIUM </ion-text>
-          <ion-text v-if="!e.EsPremium">STANDARD </ion-text>
-          <ion-text>Precio </ion-text>{{ e.Precio }}
-          <ion-img :src="e.imagen" style="width: 500px;"></ion-img>
-          <ion-button @click="eliminar(e.id)">Eliminar</ion-button>
-          <ion-button @click="modificar(e.id)">Modificar</ion-button>
+          <ion-card>
+            <div style="height: 10px;" :style="{ 'background-color': Date.parse(e.fechaFin) < new Date() ? 'red' : 'blue' }">
+            </div>
+            <ion-card-header>
+              <ion-card-title>Habitacion numero #{{ e.NumeroDeHabitacion }}</ion-card-title>
+              <ion-card-subtitle>Cantidad de personas máximo para la habitacion: {{ e.cantPersonas }}</ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-card-content>
+              <ion-text v-if="e.EsPremium">Habitación PREMIUM </ion-text>
+              <ion-text v-if="!e.EsPremium">Habitación STANDARD </ion-text>
+              <ion-text>| Precio $</ion-text>{{ e.Precio }}
+              <ion-list>
+                <ion-item>
+                  <ion-thumbnail slot="start">
+                    <img alt="Foto habitación" :src="e.imagen" />
+                  </ion-thumbnail>
+                  <ion-label>Item</ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+
+            <ion-button @click="eliminar(e.id)" fill="clear">Eliminar</ion-button>
+            <ion-button @click="modificar(e.id)" fill="clear">Modificar</ion-button>
+          </ion-card>
         </ion-list>  
         <ion-button @click="cargarLista">Cargar Lista</ion-button>
         <ion-button @click="agregaraLista">Agregar</ion-button>
@@ -42,7 +57,7 @@
           await this.cargarLista()
           this.elemento = {}
         } catch(e) {
-          alert(e)  
+          alert(e)
         }  
       },
       ordenarLista() {
