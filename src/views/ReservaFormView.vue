@@ -4,7 +4,11 @@
     <ion-content class="ion-padding">
         <form>
             <ion-item lines="full">
-            <ion-label position="floating">Name</ion-label>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input type="text" required></ion-input>
+            </ion-item>
+            <ion-item lines="full">
+            <ion-label position="floating">Apellido</ion-label>
             <ion-input type="text" required></ion-input>
             </ion-item>
             <ion-item lines="full">
@@ -12,52 +16,31 @@
             <ion-input type="email" required></ion-input>
             </ion-item>
             <ion-item lines="full">
-            <ion-label position="floating">DOB</ion-label>
-            <ion-input type="text" required></ion-input>
-            </ion-item>
-            <ion-item lines="full">
-            <ion-label position="floating">Mobile</ion-label>
+            <ion-label position="floating">DNI</ion-label>
             <ion-input type="text" required></ion-input>
             </ion-item>
             <!-- Radio buttons -->
             <ion-radio-group lines="full">
             <ion-list-header>
-                <ion-label>Gender</ion-label>
+                <ion-label>Género</ion-label>
             </ion-list-header>
             <ion-item>
-                <ion-label>Male</ion-label>
+                <ion-label>Masculino</ion-label>
                 <ion-radio slot="start" value="male" checked></ion-radio>
             </ion-item>
             <ion-item>
-                <ion-label>Female</ion-label>
+                <ion-label>Femenino</ion-label>
                 <ion-radio slot="start" value="female"></ion-radio>
+            </ion-item>
+            <ion-item>
+                <ion-label>Otro</ion-label>
+                <ion-radio slot="start" value="otro"></ion-radio>
             </ion-item>
             </ion-radio-group>
             <!-- Checkboxes -->
-            <ion-list lines="full">
-            <ion-list-header>
-                <ion-label>Subjects</ion-label>
-            </ion-list-header>
-            <ion-item>
-                <ion-label>English</ion-label>
-                <ion-checkbox></ion-checkbox>
-            </ion-item>
-            <ion-item>
-                <ion-label>Maths</ion-label>
-                <ion-checkbox></ion-checkbox>
-            </ion-item>
-            <ion-item>
-                <ion-label>Science</ion-label>
-                <ion-checkbox></ion-checkbox>
-            </ion-item>
-            <ion-item>
-                <ion-label>History</ion-label>
-                <ion-checkbox></ion-checkbox>
-            </ion-item>
-            </ion-list>
             <ion-row>
             <ion-col>
-                <ion-button type="submit" color="danger" expand="block">Submit</ion-button>
+                <ion-button type="submit" color="danger" expand="block">Enviar</ion-button>
             </ion-col>
             </ion-row>
         </form>

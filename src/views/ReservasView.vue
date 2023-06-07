@@ -4,19 +4,6 @@
   <ion-content class="ion-padding">
     <h2>Reservas</h2>
     <ion-list v-for="e in lista" :key="e.idReserva">
-      <!--<div :style="{'background-color': Date.parse(e.fechaFin) < new Date() ? 'red': 'blue'}">
-            <ion-input v-if="ocultar" v-model="elemento.idReserva" label="Id  Inicio  Fin"></ion-input> 
-            {{ e.idReserva }}  {{ e.fechaInicio }} {{ e.fechaFin }} 
-            <ion-progress-bar :value="
-              isWhatPercentOf(diasRestantes(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)), dateDiff(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)))" 
-              :buffer="isWhatPercentOf(diasRestantes(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)), dateDiff(Date.parse(e.fechaInicio), Date.parse(e.fechaFin))) - 1" color="dark">
-            </ion-progress-bar>
-          <ion-button @click="eliminar(e.idReserva)">Eliminar</ion-button>
-          <ion-button @click="modificar(e.idReserva)">Modificar</ion-button>
-          {{ dateDiff(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)) }} {{ diasRestantes(Date.parse(e.fechaInicio), Date.parse(e.fechaFin))  }}
-          {{ isWhatPercentOf(diasRestantes(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)), dateDiff(Date.parse(e.fechaInicio), Date.parse(e.fechaFin))) }}
-        </div>-->
-
       <ion-card>
         <div style="height: 10px;" :style="{ 'background-color': Date.parse(e.fechaFin) < new Date() ? 'red' : 'blue' }">
         </div>
