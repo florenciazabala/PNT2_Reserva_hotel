@@ -1,50 +1,49 @@
 <template>
-    <ion-page>
-      <ion-content >
-        <h2> Habitaciones Disponibles</h2>
-        <ion-list v-for="e in lista" :key="e.id">
-          <ion-card>
-            <div style="height: 10px;" :style="{ 'background-color': Date.parse(e.fechaFin) < new Date() ? 'red' : 'blue' }">
-            </div>
-            <ion-card-header>
-              <ion-card-title>Habitacion numero #{{ e.NumeroDeHabitacion }}</ion-card-title>
-              <ion-card-subtitle>Cantidad de personas máximo para la habitacion: {{ e.cantPersonas }}</ion-card-subtitle>
-            </ion-card-header>
+  <ion-page>
+  </ion-page>
+  <ion-content >
+    <h2> Habitaciones Disponibles</h2>
+    <ion-list v-for="e in lista" :key="e.id">
+      <ion-card>
+        <div style="height: 10px;" :style="{ 'background-color': Date.parse(e.fechaFin) < new Date() ? 'red' : 'blue' }">
+        </div>
+        <ion-card-header>
+          <ion-card-title>Habitacion numero #{{ e.NumeroDeHabitacion }}</ion-card-title>
+          <ion-card-subtitle>Cantidad de personas máximo para la habitacion: {{ e.cantPersonas }}</ion-card-subtitle>
+        </ion-card-header>
 
-            <ion-card-content>
-              <ion-text v-if="e.EsPremium">Habitación PREMIUM </ion-text>
-              <ion-text v-if="!e.EsPremium">Habitación STANDARD </ion-text>
-              <ion-text>| Precio $</ion-text>{{ e.Precio }}
-              <ion-list>
-                <ion-item>
-                  <ion-thumbnail slot="start">
-                    <img alt="Foto habitación" :src="e.imagen" />
-                  </ion-thumbnail>
-                  <ion-label>Item</ion-label>
-                </ion-item>
-              </ion-list>
-            </ion-card-content>
+        <ion-card-content>
+          <ion-text v-if="e.EsPremium">Habitación PREMIUM </ion-text>
+          <ion-text v-if="!e.EsPremium">Habitación STANDARD </ion-text>
+          <ion-text>| Precio $</ion-text>{{ e.Precio }}
+          <ion-list>
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <img alt="Foto habitación" :src="e.imagen" />
+              </ion-thumbnail>
+              <ion-label>Item</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
 
-            <ion-button @click="eliminar(e.id)" fill="clear">Eliminar</ion-button>
-            <ion-button @click="modificar(e.id)" fill="clear">Modificar</ion-button>
-          </ion-card>
-        </ion-list>  
-        <ion-button @click="cargarLista">Cargar Lista</ion-button>
-        <ion-button @click="agregaraLista">Agregar</ion-button>
-        <ion-button @click="ordenarLista">Ordenar</ion-button>
-        <ion-button @click="iraHome">Ir a home</ion-button>
-        
-      </ion-content>
-    </ion-page>
-  </template>
+        <ion-button @click="eliminar(e.id)" fill="clear">Eliminar</ion-button>
+        <ion-button @click="modificar(e.id)" fill="clear">Modificar</ion-button>
+      </ion-card>
+    </ion-list>  
+    <ion-button @click="cargarLista">Cargar Lista</ion-button>
+    <ion-button @click="agregaraLista">Agregar</ion-button>
+    <ion-button @click="ordenarLista">Ordenar</ion-button>
+    <ion-button @click="iraHome">Ir a home</ion-button>
+  </ion-content>
+</template>
   
   <script>
-  import {IonPage, IonButton, IonContent, IonInput, IonList} from '@ionic/vue'
+  import {IonPage, IonButton, IonContent, IonInput, IonList, IonProgressBar, IonCard, IonCardContent, IonCardTitle, IonCardSubtitle, IonCardHeader, IonThumbnail, IonLabel, IonItem, IonText} from '@ionic/vue'
   import axios from 'axios'
   import habitaciones from '../services/habitaciones'
   
   export default {
-    components: {IonPage, IonButton, IonContent, IonInput, IonList},
+    components: {IonPage, IonButton, IonContent, IonInput, IonList, IonProgressBar, IonCard, IonCardContent, IonCardTitle, IonCardSubtitle, IonCardHeader, IonThumbnail, IonLabel, IonItem, IonText},
     methods: {
       iraHome() {
         this.$router.push("/")

@@ -40,7 +40,7 @@
             <!-- Checkboxes -->
             <ion-row>
             <ion-col>
-                <ion-button type="submit" color="danger" expand="block">Enviar</ion-button>
+                <ion-button type="submit" color="primary" expand="block">Enviar</ion-button>
             </ion-col>
             </ion-row>
         </form>
