@@ -38,7 +38,7 @@
 
         <ion-button @click="eliminar(e.idReserva)" fill="clear">Eliminar</ion-button>
         <ion-button @click="modificar(e.idReserva)" fill="clear">Modificar</ion-button>
-        <ion-button router-link="/reservaHabitacion" router-direction="back">Reservar Habitación</ion-button>
+
       </ion-card>
 
     </ion-list>
