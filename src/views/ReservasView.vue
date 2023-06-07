@@ -49,12 +49,11 @@
 
         <ion-button @click="eliminar(e.idReserva)" fill="clear">Eliminar</ion-button>
         <ion-button @click="modificar(e.idReserva)" fill="clear">Modificar</ion-button>
+        <ion-button router-link="/reservaHabitacion" router-direction="back">Reservar Habitación</ion-button>
       </ion-card>
 
     </ion-list>
     <ion-input v-if="ocultar" v-model="elemento.idReserva" label="Id"></ion-input>
-
-
 
     <ion-button @click="cargarLista">Cargar Lista</ion-button>
     <ion-button @click="agregaraLista">Agregar</ion-button>
@@ -64,18 +63,15 @@
 </template>
   
 <script>
-import { IonPage, IonButton, IonContent, IonInput, IonList } from '@ionic/vue'
+import { IonPage, IonButton, IonContent, IonInput, IonList, IonProgressBar, IonCard, IonCardContent, IonCardTitle, IonCardSubtitle, IonCardHeader, IonThumbnail, IonLabel, IonItem} from '@ionic/vue'
 import axios from 'axios'
 import reservas from '../services/reservas'
-//Progress bar
-import { IonProgressBar } from '@ionic/vue';
 import { defineComponent, ref } from 'vue';
-/////
 
 export default {
 
 
-  components: { IonPage, IonButton, IonContent, IonInput, IonList, IonProgressBar },
+  components: { IonPage, IonButton, IonContent, IonInput, IonList, IonProgressBar, IonCard, IonCardContent, IonCardTitle, IonCardSubtitle, IonCardHeader, IonThumbnail, IonLabel, IonItem },
   methods: {
     iraHome() {
       this.$router.push("/")

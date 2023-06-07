@@ -7,6 +7,7 @@ import LogoutView from '../views/LogoutView.vue'
 import ConfigView from '../views/ConfigView.vue'
 import HabitacionesView from '../views/HabitacionesView.vue'
 import ReservasView from '../views/ReservasView.vue'
+import ReservaFormView from '../views/ReservaFormView.vue'
 
 import { useLoginStore } from '../stores/login'
 
@@ -54,6 +55,12 @@ const router = createRouter({
       path: '/reservas',
       name: "reservas",
       component: ReservasView,
+      meta: { RequireAuth: true }
+    },
+    {
+      path: '/reservaHabitacion',
+      name: "reservaHabitacion",
+      component: ReservaFormView,
       meta: { RequireAuth: true }
     },
     {
