@@ -1,13 +1,21 @@
 <script>
-import {IonPage} from '@ionic/vue'
+import {IonPage, IonContent} from '@ionic/vue'
 export default {
-  components: {IonPage}
+  components: {IonPage, IonContent}
 }
-
 </script>
 
 <template>
-  <ion-page style="background: url('../src/assets/budapeste.jpg') no-repeat center center fixed; background-size: cover">
-    <h2>Home</h2>
+  <ion-page>
+    <ion-content style="background: url('../src/assets/hotel5.jpg') no-repeat center center fixed; background-size: cover">
+      <h2>Bienvenido</h2>
+    </ion-content>
   </ion-page>
 </template>
+
+  <style>
+  ion-content{
+    --padding-top: 50px !important;
+    --background: !important;
+    }
+  </style>

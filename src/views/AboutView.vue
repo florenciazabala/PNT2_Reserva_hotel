@@ -1,18 +1,18 @@
 <template>
   <ion-page>
-  </ion-page>
-    <ion-content class="ion-padding">
-    <h2>This is an about page</h2>
-
+    <ion-content class="ion-padding" style="background: url('../src/assets/hotel5.jpg') no-repeat center center fixed; background-size: cover">
+      <h2>This is an about page</h2>
     </ion-content>
+  </ion-page>
 </template>
 
 <script>
-import {IonPage} from '@ionic/vue'
+import {IonPage, IonContent} from '@ionic/vue'
 export default {
-  components: {IonPage}
+  components: {IonPage, IonContent}
 }
 </script>
 
-<style>
-</style>
+  <style>
+
+  </style>

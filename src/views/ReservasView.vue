@@ -1,52 +1,52 @@
 <template>
   <ion-page>
-  </ion-page>
-  <ion-content class="ion-padding">
-    <h2>Reservas</h2>
-    <ion-list v-for="e in lista" :key="e.idReserva">
-      <ion-card>
-        <div style="height: 10px;" :style="{ 'background-color': Date.parse(e.fechaFin) < new Date() ? 'red' : 'blue' }">
-        </div>
-        <ion-card-header>
-          <ion-card-title>Reserva #{{ e.idReserva }}</ion-card-title>
-          <ion-card-subtitle>Inicio: {{ e.fechaInicio }} | Fin: {{ e.fechaFin }}</ion-card-subtitle>
-        </ion-card-header>
+    <ion-content class="ion-padding">
+      <h2>Reservas</h2>
+      <ion-list v-for="e in lista" :key="e.idReserva">
+        <ion-card>
+          <div style="height: 10px;" :style="{ 'background-color': Date.parse(e.fechaFin) < new Date() ? 'red' : 'blue' }">
+          </div>
+          <ion-card-header>
+            <ion-card-title>Reserva #{{ e.idReserva }}</ion-card-title>
+            <ion-card-subtitle>Inicio: {{ e.fechaInicio }} | Fin: {{ e.fechaFin }}</ion-card-subtitle>
+          </ion-card-header>
 
 
-        <!-- e.habitacion.id y e.habitacion.foto estan rompiendo, dice que no existe aunque lo esta mostrando y rompe la pagina haciendo que no pueda ir a otras vistas o tocar algun boton -->
-        <ion-card-content>
-           <!-- Habitación: {{ e.habitacion.id }} -->
-          <ion-list>
-            <ion-item>
-              <ion-thumbnail slot="start">
-                <!-- <img alt="Foto habitación" :src="e.habitacion.foto" /> -->
-              </ion-thumbnail>
-              <ion-label>Item</ion-label>
-            </ion-item>
-          </ion-list>
-        </ion-card-content>
+          <!-- e.habitacion.id y e.habitacion.foto estan rompiendo, dice que no existe aunque lo esta mostrando y rompe la pagina haciendo que no pueda ir a otras vistas o tocar algun boton -->
+          <ion-card-content>
+            <!-- Habitación: {{ e.habitacion.id }} -->
+            <ion-list>
+              <ion-item>
+                <ion-thumbnail slot="start">
+                  <!-- <img alt="Foto habitación" :src="e.habitacion.foto" /> -->
+                </ion-thumbnail>
+                <ion-label>Item</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
 
-        <div style="width: 80%; padding: 10px;">
-          <ion-progress-bar
-            :value="
-              isWhatPercentOf(diasRestantes(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)), dateDiff(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)))"
-            :buffer="isWhatPercentOf(diasRestantes(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)), dateDiff(Date.parse(e.fechaInicio), Date.parse(e.fechaFin))) - 1"
-            color="dark">
-          </ion-progress-bar> Días restantes: {{ dateDiff(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)) -
-            diasRestantes(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)) }}
-        </div>
+          <div style="width: 80%; padding: 10px;">
+            <ion-progress-bar
+              :value="
+                isWhatPercentOf(diasRestantes(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)), dateDiff(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)))"
+              :buffer="isWhatPercentOf(diasRestantes(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)), dateDiff(Date.parse(e.fechaInicio), Date.parse(e.fechaFin))) - 1"
+              color="dark">
+            </ion-progress-bar> Días restantes: {{ dateDiff(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)) -
+              diasRestantes(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)) }}
+          </div>
 
-        <ion-button @click="eliminar(e.idReserva)" fill="clear">Eliminar</ion-button>
-        <ion-button @click="modificar(e.idReserva)" fill="clear">Modificar</ion-button>
+          <ion-button @click="eliminar(e.idReserva)" fill="clear">Eliminar</ion-button>
+          <ion-button @click="modificar(e.idReserva)" fill="clear">Modificar</ion-button>
 
-      </ion-card>
+        </ion-card>
 
-    </ion-list>
-    <ion-button @click="cargarLista">Cargar Lista</ion-button>
-    <ion-button @click="agregaraLista">Agregar</ion-button>
-    <ion-button @click="ordenarLista">Ordenar</ion-button>
-    <ion-button @click="iraHome">Ir a home</ion-button>
-  </ion-content>
+      </ion-list>
+      <ion-button @click="cargarLista">Cargar Lista</ion-button>
+      <ion-button @click="agregaraLista">Agregar</ion-button>
+      <ion-button @click="ordenarLista">Ordenar</ion-button>
+      <ion-button @click="iraHome">Ir a home</ion-button>
+    </ion-content>
+   </ion-page>
 </template>
   
 <script>

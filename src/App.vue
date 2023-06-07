@@ -18,16 +18,16 @@ export default {
 </script>
 
 <template>
-  <ion-app>
+  <ion-app style="background: url('../src/assets/hotel5.jpg') no-repeat center center fixed; background-size: cover">
     <ion-header>
-      <ion-button router-link="/" router-direction="back">Home</ion-button>
-      <ion-button router-link="/about" router-direction="back">About</ion-button>
-      <ion-button router-link="/habitaciones" router-direction="back">Habitaciones</ion-button>
-      <ion-button router-link="/reservas" router-direction="back">Reservas</ion-button>
-      <ion-button v-if="isLogin" router-link="/system" router-direction="back">System</ion-button>
-      <ion-button v-if="isLogin && hasPermissions('config')" router-link="/config" router-direction="back">Config</ion-button>
-      <ion-button v-if="!isLogin" router-link="/login" router-direction="back">Login</ion-button>
-      <ion-button v-if="isLogin" router-link="/logout" router-direction="back">Logout</ion-button>
+      <ion-button fill="clear" color="light" router-link="/" router-direction="back">Home</ion-button>
+      <ion-button fill="clear" color="light" router-link="/about" router-direction="back">About</ion-button>
+      <ion-button fill="clear" color="light" router-link="/habitaciones" router-direction="back">Habitaciones</ion-button>
+      <ion-button fill="clear" color="light" router-link="/reservas" router-direction="back">Reservas</ion-button>
+      <ion-button fill="clear" color="light" v-if="isLogin" router-link="/system" router-direction="back">System</ion-button>
+      <ion-button fill="clear" color="light" v-if="isLogin && hasPermissions('config')" router-link="/config" router-direction="back">Config</ion-button>
+      <ion-button fill="clear" color="light" v-if="!isLogin" router-link="/login" router-direction="back">Login</ion-button>
+      <ion-button fill="clear" color="light" v-if="isLogin" router-link="/logout" router-direction="back">Logout</ion-button>
       <ion-label v-if="isLogin">Usuario: {{ user.email }}</ion-label>
     </ion-header>
     <RouterView />

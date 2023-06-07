@@ -1,7 +1,6 @@
 <template>
   <ion-page>
-  </ion-page>
-  <ion-content >
+    <ion-content style="background: url('../src/assets/hotel5.jpg') no-repeat center center fixed; background-size: cover">
     <h2> Habitaciones Disponibles</h2>
     <ion-list v-for="e in lista" :key="e.id">
       <ion-card>
@@ -34,7 +33,8 @@
     <ion-button @click="agregaraLista">Agregar</ion-button>
     <ion-button @click="ordenarLista">Ordenar</ion-button>
     <ion-button @click="iraHome">Ir a home</ion-button>
-  </ion-content>
+    </ion-content>
+   </ion-page>
 </template>
   
   <script>
@@ -100,8 +100,6 @@
   </script>
   
   <style>
-  ion-content{
-    --padding-top: 50px;
-    }
+
   </style>
   
