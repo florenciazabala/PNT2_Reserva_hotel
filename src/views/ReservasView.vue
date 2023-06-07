@@ -12,12 +12,14 @@
           <ion-card-subtitle>Inicio: {{ e.fechaInicio }} | Fin: {{ e.fechaFin }}</ion-card-subtitle>
         </ion-card-header>
 
+
+        <!-- e.habitacion.id y e.habitacion.foto estan rompiendo, dice que no existe aunque lo esta mostrando y rompe la pagina haciendo que no pueda ir a otras vistas o tocar algun boton -->
         <ion-card-content>
-          Habitación: {{ e.habitacion.id }}
+           <!-- Habitación: {{ e.habitacion.id }} -->
           <ion-list>
             <ion-item>
               <ion-thumbnail slot="start">
-                <img alt="Foto habitación" :src="e.habitacion.foto" />
+                <!-- <img alt="Foto habitación" :src="e.habitacion.foto" /> -->
               </ion-thumbnail>
               <ion-label>Item</ion-label>
             </ion-item>
@@ -40,8 +42,6 @@
       </ion-card>
 
     </ion-list>
-    <ion-input v-if="ocultar" v-model="elemento.idReserva" label="Id"></ion-input>
-
     <ion-button @click="cargarLista">Cargar Lista</ion-button>
     <ion-button @click="agregaraLista">Agregar</ion-button>
     <ion-button @click="ordenarLista">Ordenar</ion-button>
@@ -56,8 +56,6 @@ import reservas from '../services/reservas'
 import { defineComponent, ref } from 'vue';
 
 export default {
-
-
   components: { IonPage, IonButton, IonContent, IonInput, IonList, IonProgressBar, IonCard, IonCardContent, IonCardTitle, IonCardSubtitle, IonCardHeader, IonThumbnail, IonLabel, IonItem },
   methods: {
     iraHome() {
@@ -127,12 +125,9 @@ export default {
       colorDate: 'white'
     }
   },
-  setup() {
+  setup(){
     let progress = ref(0);
-
-    return {
-      progress
-    };
+    return {progress};
   },
   mounted() {
     setInterval(() => {
