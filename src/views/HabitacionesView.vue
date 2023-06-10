@@ -2,10 +2,8 @@
   <ion-page>
     <ion-content style="background: url('../src/assets/hotel5.jpg') no-repeat center center fixed; background-size: cover">
     <h2> Habitaciones Disponibles</h2>
-    <ion-list v-for="e in lista" :key="e.id">
-      <ion-card>
-        <div style="height: 10px;" :style="{ 'background-color': Date.parse(e.fechaFin) < new Date() ? 'red' : 'blue' }">
-        </div>
+    <ion-list class="listNegro" v-for="e in lista" :key="e.id">
+      <ion-card color="dark">
         <ion-card-header>
           <ion-card-title>Habitacion numero #{{ e.NumeroDeHabitacion }}</ion-card-title>
           <ion-card-subtitle>Cantidad de personas máximo para la habitacion: {{ e.cantPersonas }}</ion-card-subtitle>
@@ -15,8 +13,8 @@
           <ion-text v-if="e.EsPremium">Habitación PREMIUM </ion-text>
           <ion-text v-if="!e.EsPremium">Habitación STANDARD </ion-text>
           <ion-text>| Precio $</ion-text>{{ e.Precio }}
-          <ion-list>
-            <ion-item>
+          <ion-list class="listNegro">
+            <ion-item color="dark">
               <ion-thumbnail slot="start">
                 <img alt="Foto habitación" :src="e.imagen" />
               </ion-thumbnail>
@@ -24,9 +22,9 @@
             </ion-item>
           </ion-list>
         </ion-card-content>
-        <ion-button router-link="/reservaHabitacion" router-direction="back">Reservar Habitación</ion-button>
-        <ion-button @click="eliminar(e.id)" fill="clear">Eliminar</ion-button>
-        <ion-button @click="modificar(e.id)" fill="clear">Modificar</ion-button>
+        <ion-button color="warning" router-link="/reservaHabitacion" router-direction="back">Reservar Habitación</ion-button>
+        <ion-button color="warning" @click="eliminar(e.id)" fill="clear">Eliminar</ion-button>
+        <ion-button color="warning" @click="modificar(e.id)" fill="clear">Modificar</ion-button>
       </ion-card>
     </ion-list>  
     <ion-button color="light" fill="outline" @click="cargarLista">Cargar Lista</ion-button>
@@ -102,6 +100,11 @@
   <style>
   h2 {
     color: white;
+    padding-left: 16px;
+  }
+  .listNegro{
+    background: black;
+    opacity: 0.8;
   }
   </style>
   

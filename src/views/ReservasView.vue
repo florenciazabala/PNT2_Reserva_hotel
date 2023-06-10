@@ -2,8 +2,8 @@
   <ion-page>
     <ion-content class="ion-padding">
       <h2>Reservas</h2>
-      <ion-list v-for="e in lista" :key="e.idReserva">
-        <ion-card>
+      <ion-list class="listNegro" v-for="e in lista" :key="e.idReserva">
+        <ion-card color="dark">
           <div style="height: 10px;" :style="{ 'background-color': Date.parse(e.fechaFin) < new Date() ? 'red' : 'blue' }">
           </div>
           <ion-card-header>
@@ -15,8 +15,8 @@
           <!-- e.habitacion.id y e.habitacion.foto estan rompiendo, dice que no existe aunque lo esta mostrando y rompe la pagina haciendo que no pueda ir a otras vistas o tocar algun boton -->
           <ion-card-content>
             <!-- Habitación: {{ e.habitacion.id }} -->
-            <ion-list>
-              <ion-item>
+            <ion-list class="listNegro">
+              <ion-item color="dark">
                 <ion-thumbnail slot="start">
                   <!-- <img alt="Foto habitación" :src="e.habitacion.foto" /> -->
                 </ion-thumbnail>
@@ -35,7 +35,7 @@
               diasRestantes(Date.parse(e.fechaInicio), Date.parse(e.fechaFin)) }}
           </div>
 
-          <ion-button @click="eliminar(e.idReserva)" fill="clear">Eliminar</ion-button>
+          <ion-button color="danger" @click="eliminar(e.idReserva)" fill="clear">Eliminar</ion-button>
           <ion-button @click="modificar(e.idReserva)" fill="clear">Modificar</ion-button>
 
         </ion-card>
