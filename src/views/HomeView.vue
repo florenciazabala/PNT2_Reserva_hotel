@@ -8,7 +8,7 @@ export default {
 <template>
   <ion-page>
     <ion-content style="background: url('../src/assets/hotel5.jpg') no-repeat center center fixed; background-size: cover">
-      <h2>Bienvenido</h2>
+    
     </ion-content>
   </ion-page>
 </template>

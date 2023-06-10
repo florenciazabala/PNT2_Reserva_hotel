@@ -2,10 +2,10 @@
   <ion-page>
   </ion-page>
     <ion-content class="ion-padding">
-      <h2>Login</h2>
-      <ion-input v-model="usuario.email" label="Email" type="email"></ion-input>
-      <ion-input v-model="usuario.passw" label="Password" type="password"></ion-input>
-      <ion-button @click="logear">Login</ion-button>
+      <h2>Iniciar sesión</h2>
+      <ion-input class="letraBlanca" v-model="usuario.email" label="Email" type="email" errorText="Invalid email"></ion-input>
+      <ion-input class="letraBlanca" v-model="usuario.passw" label="Password" type="password"></ion-input>
+      <ion-button color="light" fill="outline" @click="logear">Login</ion-button>
     </ion-content>
 </template>
 
@@ -44,4 +44,7 @@ export default {
 </script>
 
 <style>
+.letraBlanca {
+  color: white;
+}
 </style>

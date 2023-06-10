@@ -29,10 +29,10 @@
         <ion-button @click="modificar(e.id)" fill="clear">Modificar</ion-button>
       </ion-card>
     </ion-list>  
-    <ion-button @click="cargarLista">Cargar Lista</ion-button>
-    <ion-button @click="agregaraLista">Agregar</ion-button>
-    <ion-button @click="ordenarLista">Ordenar</ion-button>
-    <ion-button @click="iraHome">Ir a home</ion-button>
+    <ion-button color="light" fill="outline" @click="cargarLista">Cargar Lista</ion-button>
+    <ion-button color="light" fill="outline" @click="agregaraLista">Agregar</ion-button>
+    <ion-button color="light" fill="outline" @click="ordenarLista">Ordenar</ion-button>
+    <ion-button color="light" fill="outline" @click="iraHome">Ir a home</ion-button>
     </ion-content>
    </ion-page>
 </template>
@@ -100,6 +100,8 @@
   </script>
   
   <style>
-
+  h2 {
+    color: white;
+  }
   </style>
   

@@ -28,7 +28,7 @@ export default {
       <ion-button fill="clear" color="light" v-if="isLogin && hasPermissions('config')" router-link="/config" router-direction="back">Config</ion-button>
       <ion-button fill="clear" color="light" v-if="!isLogin" router-link="/login" router-direction="back">Login</ion-button>
       <ion-button fill="clear" color="light" v-if="isLogin" router-link="/logout" router-direction="back">Logout</ion-button>
-      <ion-label v-if="isLogin">Usuario: {{ user.email }}</ion-label>
+      <ion-label color="light" v-if="isLogin">Usuario: {{ user.email }}</ion-label>
     </ion-header>
     <RouterView />
   </ion-app>
