@@ -29,7 +29,7 @@
           </ion-card-content>
           <ion-button color="warning" router-link="/reservaHabitacion" router-direction="back">Reservar
             Habitación</ion-button>
-          <ion-button color="warning" @click="eliminar(e.id)" fill="clear">Eliminar</ion-button>
+          <ion-button color="warning"  @click="eliminar(e.id)" fill="clear">Eliminar</ion-button>
 
           <p id="ejemplo"></p>
           <ion-button color="warning" @click="modificar(e.id)" fill="clear">Modificar</ion-button>
@@ -62,6 +62,7 @@ import {
   IonText,
 } from "@ionic/vue";
 import axios from "axios";
+import { useLoginStore } from "../stores/login";
 import habitaciones from "../services/habitaciones";
 
 export default {
@@ -114,11 +115,12 @@ export default {
         var opcion = confirm("Clicka en Aceptar o Cancelar");
         if (opcion == true) {
           mensaje = "Has clickado OK";
+          await habitaciones.eliminar(id);
         } else {
           mensaje = "Has clickado Cancelar";
         }
         document.getElementById("ejemplo").innerHTML = mensaje;
-        await habitaciones.eliminar(id);
+        
         await this.cargarLista();
       } catch (e) {
         alert("Se produjo un error");
