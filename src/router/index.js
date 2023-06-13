@@ -58,7 +58,7 @@ const router = createRouter({
       meta: { RequireAuth: true }
     },
     {
-      path: '/reservaHabitacion',
+      path: '/reservaHabitacion/:id',
       name: "reservaHabitacion",
       component: ReservaFormView,
       meta: { RequireAuth: true }

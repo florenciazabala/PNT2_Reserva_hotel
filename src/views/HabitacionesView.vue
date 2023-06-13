@@ -22,7 +22,7 @@
             </ion-item>
           </ion-list>
         </ion-card-content>
-        <ion-button color="warning" router-link="/reservaHabitacion" router-direction="back">Reservar Habitación</ion-button>
+        <ion-button color="warning" :router-link="'/reservaHabitacion/' + e.NumeroDeHabitacion" router-direction="back">Reservar Habitación</ion-button>
         <ion-button color="warning" @click="eliminar(e.id)" fill="clear">Eliminar</ion-button>
         <ion-button color="warning" @click="modificar(e.id)" fill="clear">Modificar</ion-button>
       </ion-card>

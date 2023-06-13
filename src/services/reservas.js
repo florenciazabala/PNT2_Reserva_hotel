@@ -18,6 +18,7 @@ export default {
     },
 
     async agregar(elemento) {
+        console.log('Reserva: ',elemento)
         try {
             await apiClient.post('/reservar', elemento);
         } catch (error) {

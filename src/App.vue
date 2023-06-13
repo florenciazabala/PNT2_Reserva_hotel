@@ -23,7 +23,7 @@ export default {
       <ion-button fill="clear" color="light" router-link="/" router-direction="back">Home</ion-button>
       <ion-button fill="clear" color="light" router-link="/about" router-direction="back">About</ion-button>
       <ion-button fill="clear" color="light" router-link="/habitaciones" router-direction="back">Habitaciones</ion-button>
-      <ion-button fill="clear" color="light" router-link="/reservas" router-direction="back">Reservas</ion-button>
+      <ion-button fill="clear" color="light" v-if="isLogin" router-link="/reservas" router-direction="back">Reservas</ion-button>
       <ion-button fill="clear" color="light" v-if="isLogin" router-link="/system" router-direction="back">System</ion-button>
       <ion-button fill="clear" color="light" v-if="isLogin && hasPermissions('config')" router-link="/config" router-direction="back">Config</ion-button>
       <ion-button fill="clear" color="light" v-if="!isLogin" router-link="/login" router-direction="back">Login</ion-button>
