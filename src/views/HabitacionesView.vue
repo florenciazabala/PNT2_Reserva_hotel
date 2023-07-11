@@ -28,15 +28,15 @@
               </ion-item>
             </ion-list>
           </ion-card-content>
-          <ion-button color="warning" :router-link="'/reservaHabitacion/' + e.NumeroDeHabitacion" router-direction="back">Reservar Habitación</ion-button>
+          <ion-button v-if="isLogin" color="warning" :router-link="'/reservaHabitacion/' + e.NumeroDeHabitacion" router-direction="back">Reservar Habitación</ion-button>
           <ion-button v-if="isLogin && hasPermissions('config')" color="warning" @click="eliminar(e.id)" fill="clear">Eliminar</ion-button>
           <ion-button v-if="isLogin && hasPermissions('config')" color="warning" @click="modificar(e.id)" fill="clear">Modificar</ion-button>
         </ion-card>
       </ion-list>  
-      <ion-button color="light" v-if="isLogin" fill="outline" @click="cargarLista">Cargar Lista</ion-button>
+      <ion-button color="light" fill="outline" @click="cargarLista">Cargar Lista</ion-button>
       <ion-button color="light" v-if="isLogin && hasPermissions('config')" fill="outline" @click="agregaraLista">Agregar</ion-button>
       <ion-button color="light" v-if="isLogin" fill="outline" @click="ordenarLista">Ordenar</ion-button>
-      <ion-button color="light" v-if="isLogin" fill="outline" @click="iraHome">Ir a home</ion-button>
+      <ion-button color="light" fill="outline" @click="iraHome">Ir a home</ion-button>
     </ion-content>
   </ion-page>
 </template>
