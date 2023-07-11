@@ -14,11 +14,11 @@
 
           <!-- e.habitacion.id y e.habitacion.foto estan rompiendo, dice que no existe aunque lo esta mostrando y rompe la pagina haciendo que no pueda ir a otras vistas o tocar algun boton -->
           <ion-card-content>
-            Habitación: {{ e.habitacion.id }}
+            <!-- Habitación: {{ e.habitacion.id }} -->
             <ion-list class="listNegro">
               <ion-item color="dark">
                 <ion-thumbnail slot="start">
-                  <img alt="Foto habitación" :src="e.habitacion.foto" />
+                  <!-- <img alt="Foto habitación" :src="e.habitacion.foto" /> -->
                 </ion-thumbnail>
                 <ion-label>Item</ion-label>
               </ion-item>

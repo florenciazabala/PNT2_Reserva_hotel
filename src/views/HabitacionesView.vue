@@ -1,13 +1,8 @@
 
 <template>
   <ion-page>
-    <ion-content
-      style="
-        background: url('../src/assets/hotel5.jpg') no-repeat center center
-          fixed;
-        background-size: cover;
-      "
-    >
+
+    <ion-content class="ion-padding">
       <h2>Habitaciones Disponibles</h2>
       <ion-list class="listNegro" v-for="e in lista" :key="e.id">
         <ion-card color="dark">
@@ -20,28 +15,28 @@
               {{ e.cantPersonas }}</ion-card-subtitle
             >
           </ion-card-header>
-        <ion-card-content>
-          <ion-text v-if="e.EsPremium">Habitación PREMIUM </ion-text>
-          <ion-text v-if="!e.EsPremium">Habitación STANDARD </ion-text>
-          <ion-text>| Precio $</ion-text>{{ e.Precio }}
-          <ion-list class="listNegro">
-            <ion-item color="dark">
-              <ion-thumbnail slot="start">
-                <img alt="Foto habitación" :src="e.imagen" />
-              </ion-thumbnail>
-              <ion-label>Item</ion-label>
-            </ion-item>
-          </ion-list>
-        </ion-card-content>
-        <ion-button color="warning" :router-link="'/reservaHabitacion/' + e.NumeroDeHabitacion" router-direction="back">Reservar Habitación</ion-button>
-        <ion-button color="warning" @click="eliminar(e.id)" fill="clear">Eliminar</ion-button>
-        <ion-button color="warning" @click="modificar(e.id)" fill="clear">Modificar</ion-button>
-      </ion-card>
-    </ion-list>  
-    <ion-button color="light" v-if="isLogin && hasPermissions('config')" fill="outline" @click="cargarLista">Cargar Lista</ion-button>
-    <ion-button color="light" v-if="isLogin && hasPermissions('config')" fill="outline" @click="agregaraLista">Agregar</ion-button>
-    <ion-button color="light" v-if="isLogin && hasPermissions('config')" fill="outline" @click="ordenarLista">Ordenar</ion-button>
-    <ion-button color="light" v-if="isLogin && hasPermissions('config')" fill="outline" @click="iraHome">Ir a home</ion-button>
+          <ion-card-content>
+            <ion-text v-if="e.EsPremium">Habitación PREMIUM </ion-text>
+            <ion-text v-if="!e.EsPremium">Habitación STANDARD </ion-text>
+            <ion-text>| Precio $</ion-text>{{ e.Precio }}
+            <ion-list class="listNegro">
+              <ion-item color="dark">
+                <ion-thumbnail slot="start">
+                  <img alt="Foto habitación" :src="e.imagen" />
+                </ion-thumbnail>
+                <ion-label>Item</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+          <ion-button color="warning" :router-link="'/reservaHabitacion/' + e.NumeroDeHabitacion" router-direction="back">Reservar Habitación</ion-button>
+          <ion-button v-if="isLogin && hasPermissions('config')" color="warning" @click="eliminar(e.id)" fill="clear">Eliminar</ion-button>
+          <ion-button v-if="isLogin && hasPermissions('config')" color="warning" @click="modificar(e.id)" fill="clear">Modificar</ion-button>
+        </ion-card>
+      </ion-list>  
+      <ion-button color="light" v-if="isLogin" fill="outline" @click="cargarLista">Cargar Lista</ion-button>
+      <ion-button color="light" v-if="isLogin && hasPermissions('config')" fill="outline" @click="agregaraLista">Agregar</ion-button>
+      <ion-button color="light" v-if="isLogin" fill="outline" @click="ordenarLista">Ordenar</ion-button>
+      <ion-button color="light" v-if="isLogin" fill="outline" @click="iraHome">Ir a home</ion-button>
     </ion-content>
   </ion-page>
 </template>
